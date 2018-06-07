@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <classPathEntry location="mysql-connector-java-5.1.45.jar" />
+
+  <context id="mysql">
+  	<commentGenerator>
+  		<property name="suppressAllComments" value="true"/>
+  	</commentGenerator>
+  
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://127.0.0.1:3306/test"
+        userId="root"
+        password="123456">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.zhang.myspringboot.model" targetProject="src">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="mapping"  targetProject="src">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.zhang.myspringboot.mapper"  targetProject="src">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+ 
+    <table tableName="tb_card" domainObjectName="Card" 
+	    enableCountByExample="false" enableUpdateByExample="false" 
+ 	    enableDeleteByExample="false" enableSelectByExample="false"
+	    selectByExampleQueryId="false"> 		
+    </table>
+
+
+    <table tableName="tb_person" domainObjectName="Person"
+	    enableCountByExample="false" enableUpdateByExample="false"
+ 	    enableDeleteByExample="false" enableSelectByExample="false"
+	    selectByExampleQueryId="false">
+    </table>
+  </context>
+</generatorConfiguration>

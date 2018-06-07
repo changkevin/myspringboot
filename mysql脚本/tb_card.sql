@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS `tb_card`;
+CREATE TABLE `tb_card` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(18) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
