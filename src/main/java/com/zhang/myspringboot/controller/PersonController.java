@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.alibaba.fastjson.JSON;
 import com.zhang.myspringboot.model.Person;
 import com.zhang.myspringboot.service.IPersonService;
 
@@ -23,10 +25,11 @@ public class PersonController {
         return personService.getPerson(id);
     }
     
-//    @RequestMapping("/save")
-//    @ResponseBody
-//    Person savePerson(@RequestParam("id")Person person) {
-//        return personService.savePerson(person);
-//    }
+    @RequestMapping("/save")
+    @ResponseBody
+    boolean savePerson(@RequestParam("person")String personStr) throws Exception {
+    		Person person = JSON.parseObject(personStr, Person.class);
+        return personService.savePerson(person);
+    }
    
 }
